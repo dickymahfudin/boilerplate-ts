@@ -1,0 +1,18 @@
+{
+  "editor.tabSize": 2,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "eslint.enable": true,
+  "editor.insertSpaces": true,
+  "editor.detectIndentation": false,
+  "prettier.requireConfig": true,
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "typescript.tsserver.experimental.useVsCodeWatcher": true,
+  "typescript.tsserver.watchOptions": {
+    "watchFile": "useFsEventsOnParentDirectory",
+    "watchDirectory": "fixedChunkSizePolling",
+    "fallbackPolling": "dynamicPriorityPolling",
+    "synchronousWatchDirectory": true
+  },
+  "problems.decorations.enabled": true
+}
