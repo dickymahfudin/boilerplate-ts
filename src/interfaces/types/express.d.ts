@@ -3,14 +3,16 @@ export {};
 declare global {
   namespace Express {
     export interface Response {
-      customSuccess({
-        statusCode,
+      customResponse({
         message,
         data = {},
+        code = 200,
+        validations = [],
       }: {
-        statusCode: number;
         message: string;
-        data?: object;
+        data?: any;
+        code?: number;
+        validations?: any[];
       }): Response;
     }
   }

@@ -1,15 +1,9 @@
-import express, { Request, Response } from "express";
+import "express-async-errors";
+import connectMongoDB from "@config/mongodb";
+import ExpressApp from "@config/ExpressApp";
+import http from "@delivery/http";
 
-const app = express();
+connectMongoDB();
 
-app.get("/", (req: Request, res: Response) => {
-  res.send("Hello World");
-});
-
-app.get("/test", (req: Request, res: Response) => {
-  res.send("Hello World");
-});
-
-app.listen(3000, () => {
-  console.log("Server is running on port 3000");
-});
+const expressApp = new ExpressApp(http);
+expressApp.start();

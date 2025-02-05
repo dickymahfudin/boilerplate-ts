@@ -10,7 +10,7 @@ const _dirname = dirname(filename);
 
 const compat = new FlatCompat({
   baseDirectory: _dirname,
-  recommendedConfig: pluginJs.configs.recommended
+  recommendedConfig: pluginJs.configs.recommended,
 });
 
 export default [
@@ -25,13 +25,13 @@ export default [
       "plugin:import/warnings",
       "plugin:import/typescript",
       "plugin:@typescript-eslint/eslint-recommended",
-      "plugin:@typescript-eslint/recommended"
+      "plugin:@typescript-eslint/recommended",
     ],
     parser: "@typescript-eslint/parser",
     parserOptions: {
       ecmaVersion: "latest",
       sourceType: "module",
-      project: "./tsconfig.json"
+      project: "./tsconfig.json",
     },
     plugins: ["@typescript-eslint", "import", "prettier"],
     rules: {
@@ -44,14 +44,17 @@ export default [
       "import/prefer-default-export": "off",
       "prettier/prettier": ["error"],
       "no-useless-constructor": "off",
-      "no-empty-function": ["error", { allow: ["constructors"] }]
+      "no-empty-function": ["error", { allow: ["constructors"] }],
+      "@typescript-eslint/no-empty-object-type": "off",
+      "@typescript-eslint/no-empty-interface": "off",
+      "@typescript-eslint/no-explicit-any": "off",
     },
     settings: {
       "import/resolver": {
         typescript: {
-          project: "./tsconfig.json"
-        }
-      }
-    }
-  })
+          project: "./tsconfig.json",
+        },
+      },
+    },
+  }),
 ];

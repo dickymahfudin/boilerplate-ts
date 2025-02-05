@@ -14,10 +14,19 @@
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "baseUrl": ".",
+    "typeRoots": ["./src/interfaces/types", "./node_modules/@types"],
     "paths": {
-      "@/*": ["./src/*"]
+      "@application/*": ["src/application/*"],
+      "@config/*": ["src/config/*"],
+      "@util/*": ["src/util/*"],
+      "@constants/*": ["src/constants/*"],
+      "@interfaces/*": ["src/interfaces/*"],
+      "@repository/*": ["src/repository/*"],
+      "@models/*": ["src/models/*"],
+      "@delivery/*": ["src/delivery/*"],
+      "@middleware/*": ["src/middleware/*"]
     }
   },
-  "include": ["src/**/*.ts", "eslint.config.mjs"],
+  "include": ["src/**/*.ts", "eslint.config.mjs", "src/interfaces/**/*.d.ts"],
   "exclude": ["node_modules", "dist"]
 }
