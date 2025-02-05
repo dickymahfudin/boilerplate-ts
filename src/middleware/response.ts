@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Request, Response, NextFunction } from "express";
 
 const handleResponse = (req: Request, res: Response, next: NextFunction) => {
@@ -25,4 +26,11 @@ const handleResponse = (req: Request, res: Response, next: NextFunction) => {
   next();
 };
 
-export default handleResponse;
+const notFound = (req: Request, res: Response, next: NextFunction) => {
+  res.customResponse({
+    message: "Not Found",
+    code: 404,
+  });
+};
+
+export { handleResponse, notFound };

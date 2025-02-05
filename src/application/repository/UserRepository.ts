@@ -1,8 +1,8 @@
-import BasicRepository from "./BasicRepository";
+import BaseRepository from "./BaseRepository";
 import IUserRepository from "@interfaces/repository/IUserRepository";
 import { IUser, UserModel } from "@models/userModel";
 
-class UserRepository extends BasicRepository<IUser> implements IUserRepository {
+class UserRepository extends BaseRepository<IUser> implements IUserRepository {
   constructor() {
     super(UserModel);
   }

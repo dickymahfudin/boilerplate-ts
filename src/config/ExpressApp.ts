@@ -2,7 +2,7 @@ import express from "express";
 import cors from "cors";
 import { env } from "@config/config";
 import errorHandler from "@middleware/errorHandler";
-import handleResponse from "@middleware/response";
+import { handleResponse, notFound } from "@middleware/response";
 import handleRequest from "@middleware/request";
 
 class ExpressApp {
@@ -39,6 +39,7 @@ class ExpressApp {
     });
 
     this.app.use(errorHandler);
+    this.app.use("*", notFound);
   }
 
   private listRoutes(): void {
