@@ -5,20 +5,18 @@ import { z } from "zod";
 import validate from "@middleware/validation";
 import { Model, Document } from "mongoose";
 import { Filter } from "@interfaces/http/general";
+
 class BasicHttp<T extends Document> {
   public router: Router;
   private readonly service: BasicService<T>;
-  private readonly model: Model<T>;
-  private readonly key: string;
-  private readonly schema: z.ZodObject<any, any, any, any, any>;
-  private readonly routeGroup: string;
 
-  constructor(model: Model<T>, key: string, schema: z.ZodObject<any, any, any, any, any>, routeGroup: string) {
+  constructor(
+    model: Model<T>,
+    key: string,
+    private readonly schema: z.ZodObject<any, any, any, any, any>,
+    private readonly routeGroup: string,
+  ) {
     const repository = new BasicRepository<T>(model);
-    this.model = model;
-    this.key = key;
-    this.schema = schema;
-    this.routeGroup = routeGroup;
     this.service = new BasicService(repository, key);
     this.router = Router();
     this.routes();
